@@ -4,6 +4,8 @@ module top_module (
     output ringer,       // Make sound
     output motor         // Vibrate
 );
-    assign ringer = (ring|ring) ? 1 : 0;
-    assign motor = (vibrate_mode|ring) ? 1 : 0;
+
+assign motor  = ring &  vibrate_mode;
+assign ringer = ring & ~vibrate_mode;
+
 endmodule
